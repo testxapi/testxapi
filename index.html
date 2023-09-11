@@ -235,6 +235,8 @@ function sendXAPIStatement(verbId, verb, objectId, object, desc, response, succe
         }
     };
 
+  console.log("req ", xapiStatement);
+
     // Send your statement
     xapi.sendStatement({
         statement: xapiStatement
@@ -268,8 +270,6 @@ submitBtn.addEventListener('click', () => {
             break;
     }
 
-    console.log("click");
-
     const verbId = "http://adlnet.gov/expapi/verbs/answered";
     const objectId = "http://testxapi.com/question-" + (currentQuiz + 1);
     const desc = quizData[currentQuiz].question;
@@ -286,8 +286,6 @@ submitBtn.addEventListener('click', () => {
            <button onclick="location.reload()">Reload</button>
            `
        }
-
-       console.log("res ", response);
 
        sendXAPIStatement(verbId, "answered", objectId, object, desc, response, success)
     }
